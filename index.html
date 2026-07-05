@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PersonalizArt - Produtos Personalizados Premium</title>
+    <title>Cria Paper - Canecas e Toper Personalizados Premium</title>
     <style>
         * {
             margin: 0;
@@ -17,15 +17,23 @@
             color: #333;
         }
 
+        /* CORES PERSONALIZADAS */
+        :root {
+            --azul-marinho: #001f3f;
+            --azul-serenity: #92A8D1;
+            --dourado: #DAA520;
+            --azul-claro: #f0f4f8;
+        }
+
         /* HEADER */
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--azul-marinho) 0%, #003d7a 100%);
             color: white;
             padding: 20px 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 31, 63, 0.3);
         }
 
         .header-content {
@@ -40,7 +48,8 @@
         .logo {
             font-size: 28px;
             font-weight: bold;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
+            color: var(--dourado);
         }
 
         .cart-icon {
@@ -53,8 +62,8 @@
             position: absolute;
             top: -10px;
             right: -10px;
-            background: #ff6b6b;
-            color: white;
+            background: var(--dourado);
+            color: var(--azul-marinho);
             border-radius: 50%;
             width: 24px;
             height: 24px;
@@ -67,9 +76,9 @@
 
         /* BANNER HERO */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--azul-marinho) 0%, var(--azul-serenity) 100%);
             color: white;
-            padding: 60px 20px;
+            padding: 80px 20px;
             text-align: center;
         }
 
@@ -86,8 +95,8 @@
         }
 
         .cta-button {
-            background: #ff6b6b;
-            color: white;
+            background: var(--dourado);
+            color: var(--azul-marinho);
             padding: 15px 40px;
             border: none;
             border-radius: 50px;
@@ -100,9 +109,9 @@
         }
 
         .cta-button:hover {
-            background: #ff5252;
+            background: #FFE680;
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+            box-shadow: 0 10px 25px rgba(218, 165, 32, 0.4);
         }
 
         /* MENU NAVEGAÇÃO */
@@ -113,13 +122,14 @@
             gap: 20px;
             padding: 0 20px;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         .menu-btn {
             padding: 15px 40px;
-            border: 2px solid #667eea;
+            border: 2px solid var(--azul-marinho);
             background: white;
-            color: #667eea;
+            color: var(--azul-marinho);
             border-radius: 50px;
             cursor: pointer;
             font-size: 16px;
@@ -129,7 +139,7 @@
 
         .menu-btn:hover,
         .menu-btn.active {
-            background: #667eea;
+            background: var(--azul-marinho);
             color: white;
         }
 
@@ -143,35 +153,36 @@
         /* PRODUTOS */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
             gap: 30px;
             margin: 40px 0;
         }
 
         .product-card {
             background: white;
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 20px rgba(0, 31, 63, 0.1);
             transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
+            border-top: 4px solid var(--dourado);
         }
 
         .product-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 15px 35px rgba(0, 31, 63, 0.2);
         }
 
         .product-image {
             width: 100%;
             height: 200px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--azul-marinho) 0%, var(--azul-serenity) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 48px;
+            font-size: 60px;
         }
 
         .product-info {
@@ -182,10 +193,10 @@
         }
 
         .product-name {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
             margin-bottom: 10px;
-            color: #333;
+            color: var(--azul-marinho);
         }
 
         .product-description {
@@ -196,18 +207,18 @@
         }
 
         .product-price {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: bold;
-            color: #667eea;
+            color: var(--dourado);
             margin-bottom: 15px;
         }
 
         .add-to-cart {
-            background: #667eea;
+            background: var(--azul-marinho);
             color: white;
             padding: 12px 20px;
             border: none;
-            border-radius: 5px;
+            border-radius: 6px;
             cursor: pointer;
             font-weight: bold;
             transition: all 0.3s ease;
@@ -215,37 +226,49 @@
         }
 
         .add-to-cart:hover {
-            background: #764ba2;
+            background: var(--dourado);
+            color: var(--azul-marinho);
         }
 
         /* SEÇÃO DESTAQUE */
         .highlights {
-            background: #f8f9ff;
-            padding: 40px 20px;
+            background: var(--azul-claro);
+            padding: 50px 20px;
             margin: 40px 0;
-            border-radius: 10px;
+            border-radius: 12px;
+            border-left: 6px solid var(--dourado);
+        }
+
+        .highlights h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--azul-marinho);
         }
 
         .highlights-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 30px;
             margin-top: 30px;
         }
 
         .highlight-item {
             text-align: center;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 31, 63, 0.08);
         }
 
         .highlight-icon {
             font-size: 40px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .highlight-title {
             font-weight: bold;
             margin-bottom: 10px;
-            color: #333;
+            color: var(--azul-marinho);
         }
 
         .highlight-text {
@@ -255,7 +278,7 @@
 
         /* DEPOIMENTOS */
         .testimonials {
-            padding: 40px 20px;
+            padding: 60px 20px;
             background: white;
         }
 
@@ -263,7 +286,7 @@
             text-align: center;
             margin-bottom: 40px;
             font-size: 32px;
-            color: #333;
+            color: var(--azul-marinho);
         }
 
         .testimonials-grid {
@@ -273,27 +296,30 @@
         }
 
         .testimonial-card {
-            background: #f8f9ff;
+            background: var(--azul-claro);
             padding: 25px;
             border-radius: 10px;
-            border-left: 4px solid #667eea;
+            border-left: 5px solid var(--dourado);
+            box-shadow: 0 3px 15px rgba(0, 31, 63, 0.1);
         }
 
         .testimonial-text {
-            color: #666;
+            color: #555;
             margin-bottom: 15px;
             font-style: italic;
+            line-height: 1.8;
         }
 
         .testimonial-author {
             font-weight: bold;
-            color: #333;
+            color: var(--azul-marinho);
             font-size: 14px;
         }
 
         .testimonial-rating {
-            color: #ffc107;
+            color: var(--dourado);
             margin-bottom: 10px;
+            font-size: 16px;
         }
 
         /* CARRINHO */
@@ -304,7 +330,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0, 31, 63, 0.6);
             z-index: 200;
             align-items: center;
             justify-content: center;
@@ -317,11 +343,12 @@
         .cart-content {
             background: white;
             padding: 30px;
-            border-radius: 10px;
+            border-radius: 12px;
             max-width: 500px;
             width: 90%;
             max-height: 80vh;
             overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 31, 63, 0.3);
         }
 
         .cart-header {
@@ -329,6 +356,12 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
+            border-bottom: 2px solid var(--azul-claro);
+            padding-bottom: 15px;
+        }
+
+        .cart-header h2 {
+            color: var(--azul-marinho);
         }
 
         .cart-close {
@@ -336,7 +369,7 @@
             border: none;
             font-size: 28px;
             cursor: pointer;
-            color: #666;
+            color: var(--azul-marinho);
         }
 
         .cart-item {
@@ -344,7 +377,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 0;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid var(--azul-claro);
         }
 
         .cart-item-info {
@@ -354,23 +387,25 @@
         .cart-item-name {
             font-weight: bold;
             margin-bottom: 5px;
+            color: var(--azul-marinho);
         }
 
         .cart-item-price {
-            color: #667eea;
+            color: var(--dourado);
             font-weight: bold;
         }
 
         .cart-total {
             margin-top: 20px;
             padding-top: 20px;
-            border-top: 2px solid #667eea;
-            font-size: 20px;
+            border-top: 3px solid var(--azul-marinho);
+            font-size: 22px;
             font-weight: bold;
+            color: var(--azul-marinho);
         }
 
         .checkout-button {
-            background: #ff6b6b;
+            background: var(--azul-marinho);
             color: white;
             padding: 15px 30px;
             border: none;
@@ -384,21 +419,40 @@
         }
 
         .checkout-button:hover {
+            background: var(--dourado);
+            color: var(--azul-marinho);
+        }
+
+        .remove-btn {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .remove-btn:hover {
             background: #ff5252;
         }
 
         /* FOOTER */
         footer {
-            background: #333;
+            background: var(--azul-marinho);
             color: white;
-            padding: 40px 20px;
-            text-align: center;
+            padding: 50px 20px;
             margin-top: 60px;
         }
 
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
+        }
+
+        .footer-content h3 {
+            color: var(--dourado);
+            margin-bottom: 10px;
         }
 
         .footer-links {
@@ -413,19 +467,21 @@
             color: white;
             text-decoration: none;
             transition: color 0.3s ease;
+            font-weight: 500;
         }
 
         .footer-links a:hover {
-            color: #667eea;
+            color: var(--dourado);
         }
 
         /* SEÇÃO CALL-TO-ACTION */
         .final-cta {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--azul-marinho) 0%, var(--azul-serenity) 100%);
             color: white;
-            padding: 60px 20px;
+            padding: 70px 20px;
             text-align: center;
             margin-bottom: 40px;
+            border-radius: 12px;
         }
 
         .final-cta h2 {
@@ -456,6 +512,10 @@
                 flex-direction: column;
                 gap: 15px;
             }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .hidden {
@@ -467,7 +527,7 @@
     <!-- HEADER -->
     <header>
         <div class="header-content">
-            <div class="logo">PersonalizArt ✨</div>
+            <div class="logo">Cria Paper ✨</div>
             <div class="cart-icon" onclick="toggleCart()">
                 🛒
                 <div class="cart-count" id="cartCount">0</div>
@@ -477,8 +537,8 @@
 
     <!-- HERO -->
     <div class="hero">
-        <h1>Produtos Personalizados de Qualidade Premium</h1>
-        <p>Transforme suas ideias em presentes únicos e memoráveis</p>
+        <h1>Canecas e Toper Personalizados de Qualidade Premium</h1>
+        <p>Crie presentes únicos que seus clientes vão amar!</p>
         <button class="cta-button" onclick="document.querySelector('.menu-nav').scrollIntoView({behavior: 'smooth'})">
             Explorar Produtos
         </button>
@@ -502,27 +562,27 @@
     <!-- DESTAQUE -->
     <div class="container">
         <div class="highlights">
-            <h2 style="text-align: center; margin-bottom: 30px;">Por Que Escolher a Gente?</h2>
+            <h2>🏆 Por Que Escolher Cria Paper?</h2>
             <div class="highlights-grid">
                 <div class="highlight-item">
                     <div class="highlight-icon">✅</div>
                     <div class="highlight-title">Qualidade Garantida</div>
-                    <div class="highlight-text">Materiais premium e impressão de alta qualidade</div>
+                    <div class="highlight-text">Materiais premium e impressão perfeita</div>
                 </div>
                 <div class="highlight-item">
                     <div class="highlight-icon">⚡</div>
                     <div class="highlight-title">Entrega Rápida</div>
-                    <div class="highlight-text">Seu pedido chega em até 7 dias úteis</div>
+                    <div class="highlight-text">Seus pedidos saem em até 5 dias</div>
                 </div>
                 <div class="highlight-item">
                     <div class="highlight-icon">🎨</div>
-                    <div class="highlight-title">Personalização Total</div>
-                    <div class="highlight-text">Seu design, do seu jeito, como você quer</div>
+                    <div class="highlight-title">100% Personalizado</div>
+                    <div class="highlight-text">Seu design, do seu jeito, perfeito</div>
                 </div>
                 <div class="highlight-item">
                     <div class="highlight-icon">💰</div>
-                    <div class="highlight-title">Preços Competitivos</div>
-                    <div class="highlight-text">Melhor custo-benefício do mercado</div>
+                    <div class="highlight-title">Melhor Preço</div>
+                    <div class="highlight-text">Qualidade premium com preço justo</div>
                 </div>
             </div>
         </div>
@@ -531,37 +591,37 @@
     <!-- DEPOIMENTOS -->
     <div class="testimonials">
         <div class="container">
-            <h2>O Que Nossos Clientes Dizem</h2>
+            <h2>💬 O Que Nossos Clientes Dizem</h2>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
                     <div class="testimonial-text">
-                        "Adorei o resultado! A qualidade das canecas é impecável. Minha família inteira quer uma agora!"
+                        "Excelente qualidade! As canecas ficaram lindas, meus clientes adoraram. Recomendo muito Cria Paper!"
                     </div>
-                    <div class="testimonial-author">Maria Silva - São Paulo</div>
+                    <div class="testimonial-author">Fernanda Oliveira - São Paulo</div>
                 </div>
                 <div class="testimonial-card">
                     <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
                     <div class="testimonial-text">
-                        "Pedi um toper para o aniversário da minha filha e foi sucesso total! Entrega rápida e perfeita."
+                        "O toper chegou perfeito! Super bem acabado e elegante. Meus clientes pediram mais. Parabéns!"
                     </div>
-                    <div class="testimonial-author">João Santos - Rio de Janeiro</div>
+                    <div class="testimonial-author">Rafael Santos - Rio de Janeiro</div>
                 </div>
                 <div class="testimonial-card">
                     <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
                     <div class="testimonial-text">
-                        "Melhor investimento para meu negócio! Os clientes amam os produtos personalizados. Super recomendo!"
+                        "Atendimento rápido e produtos de qualidade. Já fiz vários pedidos e sempre perfeito. Muito bom!"
                     </div>
-                    <div class="testimonial-author">Ana Costa - Minas Gerais</div>
+                    <div class="testimonial-author">Juliana Costa - Minas Gerais</div>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- CALL-TO-ACTION FINAL -->
-    <div class="final-cta">
-        <div class="container">
-            <h2>Pronto Para Criar Algo Especial?</h2>
+    <div class="container">
+        <div class="final-cta">
+            <h2>📦 Pronto Para Criar Algo Especial?</h2>
             <p>Escolha seus produtos e personalize do seu jeito!</p>
             <button class="cta-button" onclick="scrollToProducts()">Ver Produtos Agora</button>
         </div>
@@ -570,15 +630,15 @@
     <!-- FOOTER -->
     <footer>
         <div class="footer-content">
-            <h3>PersonalizArt</h3>
-            <p style="margin: 10px 0;">Seus produtos personalizados com qualidade premium</p>
+            <h3>Cria Paper</h3>
+            <p style="margin: 10px 0;">Canecas e Toper Personalizados com Qualidade Premium</p>
             <div class="footer-links">
-                <a href="#whatsapp">📞 WhatsApp</a>
-                <a href="#email">📧 Email</a>
+                <a href="https://wa.me/5515996590787" target="_blank">📞 WhatsApp</a>
+                <a href="mailto:contato@criapaper.com">📧 Email</a>
                 <a href="#instagram">📸 Instagram</a>
             </div>
-            <p style="margin-top: 30px; font-size: 14px; opacity: 0.7;">
-                © 2024 PersonalizArt. Todos os direitos reservados.
+            <p style="margin-top: 30px; font-size: 14px; opacity: 0.8;">
+                © 2024 Cria Paper. Todos os direitos reservados.
             </p>
         </div>
     </footer>
@@ -594,7 +654,7 @@
             <div class="cart-total">
                 Total: R$ <span id="cartTotal">0.00</span>
             </div>
-            <button class="checkout-button" onclick="checkout()">Finalizar Compra</button>
+            <button class="checkout-button" onclick="checkout()">Finalizar Compra no WhatsApp</button>
         </div>
     </div>
 
@@ -604,101 +664,61 @@
             canecas: [
                 {
                     id: 1,
-                    name: "Caneca Porcelana Premium",
-                    description: "Caneca de porcelana de alta qualidade com seu design personalizado",
-                    price: 34.90,
+                    name: "Caneca Básica",
+                    description: "Caneca de porcelana com sua personalização perfeita",
+                    price: 39.00,
                     category: "canecas",
                     image: "☕"
                 },
                 {
                     id: 2,
-                    name: "Caneca Térmica Personalizável",
-                    description: "Mantém a bebida quente/fria e com design único seu",
-                    price: 49.90,
+                    name: "Caneca Chop Jateada",
+                    description: "Caneca tipo chop com acabamento jateado elegante",
+                    price: 69.00,
                     category: "canecas",
-                    image: "🔥"
+                    image: "🍺"
                 },
                 {
                     id: 3,
-                    name: "Caneca Cerâmica 350ml",
-                    description: "Caneca clássica de cerâmica com impressão colorida",
-                    price: 29.90,
+                    name: "Caneca Mágica",
+                    description: "Caneca mágica que muda com o calor - efeito incrível!",
+                    price: 59.00,
                     category: "canecas",
-                    image: "☕"
+                    image: "✨"
                 },
                 {
                     id: 4,
-                    name: "Kit 2 Canecas Casal",
-                    description: "Duas canecas combinando - perfeito para casais!",
-                    price: 59.90,
+                    name: "Caneca Imperial",
+                    description: "Caneca premium imperial com design exclusivo",
+                    price: 79.00,
                     category: "canecas",
-                    image: "💕"
-                },
-                {
-                    id: 5,
-                    name: "Caneca Plástica 500ml",
-                    description: "Resistente e leve - ideal para bebidas geladas",
-                    price: 24.90,
-                    category: "canecas",
-                    image: "🥤"
-                },
-                {
-                    id: 6,
-                    name: "Caneca Quadrada Premium",
-                    description: "Design moderno e quadrado com sua personalização",
-                    price: 39.90,
-                    category: "canecas",
-                    image: "⬜"
+                    image: "👑"
                 }
             ],
             toper: [
                 {
-                    id: 7,
-                    name: "Toper Acrílico Redondo",
-                    description: "Toper redondo em acrílico cristal - elegante e resistente",
-                    price: 44.90,
+                    id: 5,
+                    name: "Toper Básico",
+                    description: "Toper redondo acrílico cristal - simples e elegante",
+                    price: 25.00,
                     category: "toper",
                     image: "🎂"
                 },
                 {
-                    id: 8,
-                    name: "Toper Quadrado Premium",
-                    description: "Design moderno quadrado para bolos contemporâneos",
-                    price: 54.90,
-                    category: "toper",
-                    image: "📦"
-                },
-                {
-                    id: 9,
-                    name: "Toper Acrílico com Base",
-                    description: "Com base espelhada - sofisticado e profissional",
-                    price: 64.90,
+                    id: 6,
+                    name: "Toper Intermediário",
+                    description: "Toper com detalhes em espelho - mais sofisticado",
+                    price: 35.00,
                     category: "toper",
                     image: "✨"
                 },
                 {
-                    id: 10,
-                    name: "Toper Personalizado 10cm",
-                    description: "Altura 10cm - ideal para bolos de 2-3 andares",
-                    price: 49.90,
+                    id: 7,
+                    name: "Toper Luxo",
+                    description: "Toper premium com acabamento espelhado dourado",
+                    price: 40.00,
                     category: "toper",
-                    image: "🍰"
-                },
-                {
-                    id: 11,
-                    name: "Toper Espelhado Dourado",
-                    description: "Acabamento espelhado dourado - super elegante!",
-                    price: 69.90,
-                    category: "toper",
-                    image: "🏆"
-                },
-                {
-                    id: 12,
-                    name: "Toper Acrílico 15cm",
-                    description: "Altura 15cm para bolos maiores e mais altos",
-                    price: 59.90,
-                    category: "toper",
-                    image: "🎪"
+                    image: "👑"
                 }
             ]
         };
@@ -768,7 +788,7 @@
             cartItemsDiv.innerHTML = '';
             
             if (cart.length === 0) {
-                cartItemsDiv.innerHTML = '<p style="text-align: center; padding: 20px;">Seu carrinho está vazio</p>';
+                cartItemsDiv.innerHTML = '<p style="text-align: center; padding: 20px; color: #666;">Seu carrinho está vazio</p>';
                 document.getElementById('cartTotal').textContent = '0.00';
                 return;
             }
@@ -782,7 +802,7 @@
                         <div class="cart-item-name">${item.name}</div>
                         <div class="cart-item-price">R$ ${item.price.toFixed(2)}</div>
                     </div>
-                    <button style="background: #ff6b6b; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;" onclick="removeFromCart(${index})">
+                    <button class="remove-btn" onclick="removeFromCart(${index})">
                         Remover
                     </button>
                 `;
@@ -800,7 +820,7 @@
             renderCart();
         }
 
-        // Checkout
+        // Checkout via WhatsApp
         function checkout() {
             if (cart.length === 0) {
                 alert('Adicione produtos ao carrinho primeiro!');
@@ -808,10 +828,10 @@
             }
 
             const total = cart.reduce((sum, item) => sum + item.price, 0);
-            const items = cart.map(item => `- ${item.name}: R$ ${item.price.toFixed(2)}`).join('\n');
+            const items = cart.map(item => `✓ ${item.name}: R$ ${item.price.toFixed(2)}`).join('\n');
             
-            const message = `Olá! Gostaria de pedir:\n\n${items}\n\nTotal: R$ ${total.toFixed(2)}`;
-            const whatsappLink = `https://wa.me/5511999999999?text=${encodeURIComponent(message)}`;
+            const message = `🎉 Olá! Gostaria de fazer um pedido:\n\n${items}\n\n💰 Total: R$ ${total.toFixed(2)}\n\nPor favor, confirme a disponibilidade e o prazo de entrega!`;
+            const whatsappLink = `https://wa.me/5515996590787?text=${encodeURIComponent(message)}`;
             
             window.open(whatsappLink, '_blank');
         }
