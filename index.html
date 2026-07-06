@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cria Paper - Canecas e Toper Personalizados Premium</title>
+    <title>Cria Paper - Canecas, Toper e Produtos Personalizados</title>
     <script src="https://sdk.mercadopago.com/js/v2"></script>
     <style>
         * {
@@ -13,28 +13,30 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: #fafafa;
+            color: #4a4a4a;
+            background: #fafaf8;
         }
 
         :root {
             --azul-marinho: #001f3f;
             --azul-serenity: #92A8D1;
             --dourado: #DAA520;
-            --azul-claro: #f0f4f8;
+            --cinza-claro: #f5f5f3;
+            --texto: #4a4a4a;
         }
 
         /* HEADER */
         header {
-            background: linear-gradient(135deg, var(--azul-marinho) 0%, #003d7a 100%);
-            color: white;
-            padding: 15px 0;
+            background: white;
+            color: var(--azul-marinho);
+            padding: 18px 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 4px 15px rgba(0, 31, 63, 0.3);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-bottom: 1px solid #f0f0f0;
         }
 
         .header-content {
@@ -47,24 +49,16 @@
         }
 
         .logo-header {
-            font-size: 24px;
-            font-weight: bold;
+            font-size: 20px;
+            font-weight: 700;
             color: var(--dourado);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo-img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+            letter-spacing: 1px;
         }
 
         .cart-icon {
             position: relative;
             cursor: pointer;
-            font-size: 24px;
+            font-size: 22px;
         }
 
         .cart-count {
@@ -72,96 +66,116 @@
             top: -10px;
             right: -10px;
             background: var(--dourado);
-            color: var(--azul-marinho);
+            color: white;
             border-radius: 50%;
-            width: 24px;
-            height: 24px;
+            width: 22px;
+            height: 22px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: bold;
         }
 
         /* HERO */
         .hero {
-            background: linear-gradient(135deg, rgba(0, 31, 63, 0.7) 0%, rgba(146, 168, 209, 0.7) 100%), 
-                        url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAIBAQIBAQICAgICAgICAwUDAwwUBAwMBwkMBwMEAwMDBwMDBwMDAwMDBwMDBwMDBwMDBwMDBwMDBwMD/2wBDAQICAgMDAwYDAwYMCAcIDAwYCgsMCwkKDA8MDAwMDAw/DA8MDAwMDA8PDA8MDAwMDwwPDAwMDAwMDAwMDAwMDAwMD/wAARCAEsASwDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWm5ybnJ2eoqOkpaanqKmqsrO0tba2uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlbaWmJmaoqOkpaanqKmqsrO0tba2uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9/KKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/2Q==') center/cover;
+            background: linear-gradient(135deg, rgba(0, 31, 63, 0.85) 0%, rgba(146, 168, 209, 0.85) 100%),
+                        url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==') center/cover;
+            background-size: cover;
+            background-position: center;
             color: white;
-            padding: 120px 20px;
+            padding: 100px 20px;
             text-align: center;
-            min-height: 600px;
+            min-height: 500px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 31, 63, 0.6) 0%, rgba(146, 168, 209, 0.6) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
         }
 
         .hero h1 {
-            font-size: 56px;
+            font-size: 48px;
             margin-bottom: 20px;
             font-weight: 700;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+            line-height: 1.2;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
         }
 
-        .hero-subtitle {
-            font-size: 24px;
-            margin-bottom: 40px;
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
             opacity: 0.95;
-            color: var(--dourado);
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
         }
 
         .cta-button {
             background: var(--dourado);
             color: var(--azul-marinho);
-            padding: 18px 50px;
+            padding: 16px 45px;
             border: none;
             border-radius: 50px;
-            font-size: 16px;
-            font-weight: bold;
+            font-size: 15px;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
-            box-shadow: 0 10px 25px rgba(218, 165, 32, 0.3);
+            box-shadow: 0 8px 20px rgba(218, 165, 32, 0.2);
         }
 
         .cta-button:hover {
             background: #FFE680;
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(218, 165, 32, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(218, 165, 32, 0.35);
         }
 
-        /* MENU NAVEGAÇÃO */
+        /* MENU */
         .menu-nav {
             max-width: 1200px;
-            margin: 50px auto;
+            margin: 45px auto;
             display: flex;
-            gap: 20px;
+            gap: 15px;
             padding: 0 20px;
             justify-content: center;
             flex-wrap: wrap;
         }
 
         .menu-btn {
-            padding: 15px 40px;
-            border: 2px solid var(--azul-marinho);
+            padding: 12px 32px;
+            border: 2px solid #e0e0e0;
             background: white;
-            color: var(--azul-marinho);
+            color: var(--texto);
             border-radius: 50px;
             cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
+            font-size: 14px;
+            font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 31, 63, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
         .menu-btn:hover,
         .menu-btn.active {
-            background: var(--azul-marinho);
-            color: white;
-            transform: translateY(-2px);
+            border-color: var(--dourado);
+            background: var(--cinza-claro);
+            color: var(--azul-marinho);
         }
 
         .container {
@@ -173,133 +187,132 @@
         /* PRODUTOS */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
             margin: 50px 0;
         }
 
         .product-card {
             background: white;
-            border-radius: 15px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 31, 63, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
-            border-top: 5px solid var(--dourado);
+            border: 1px solid #f0f0f0;
         }
 
         .product-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 50px rgba(0, 31, 63, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
         }
 
         .product-image {
             width: 100%;
-            height: 220px;
+            height: 200px;
             background: linear-gradient(135deg, var(--azul-marinho) 0%, var(--azul-serenity) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 70px;
+            font-size: 60px;
         }
 
         .product-info {
-            padding: 25px;
+            padding: 20px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
 
         .product-name {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
             color: var(--azul-marinho);
         }
 
         .product-description {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 15px;
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 12px;
             flex-grow: 1;
+            line-height: 1.4;
         }
 
         .product-price {
-            font-size: 32px;
-            font-weight: bold;
+            font-size: 24px;
+            font-weight: 700;
             color: var(--dourado);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .add-to-cart {
             background: var(--azul-marinho);
             color: white;
-            padding: 14px 20px;
+            padding: 12px 16px;
             border: none;
-            border-radius: 8px;
+            border-radius: 6px;
             cursor: pointer;
-            font-weight: bold;
+            font-weight: 600;
             transition: all 0.3s ease;
             width: 100%;
-            font-size: 15px;
+            font-size: 14px;
         }
 
         .add-to-cart:hover {
             background: var(--dourado);
             color: var(--azul-marinho);
-            transform: scale(1.05);
+            transform: scale(1.02);
         }
 
         /* HIGHLIGHTS */
         .highlights {
-            background: var(--azul-claro);
-            padding: 60px 20px;
+            background: white;
+            padding: 50px 20px;
             margin: 50px 0;
-            border-radius: 15px;
-            border-left: 6px solid var(--dourado);
+            border-radius: 12px;
+            border: 1px solid #f0f0f0;
         }
 
         .highlights h2 {
             text-align: center;
             margin-bottom: 40px;
             color: var(--azul-marinho);
-            font-size: 32px;
+            font-size: 28px;
+            font-weight: 700;
         }
 
         .highlights-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
         }
 
         .highlight-item {
             text-align: center;
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 31, 63, 0.08);
         }
 
         .highlight-icon {
-            font-size: 50px;
-            margin-bottom: 15px;
+            font-size: 40px;
+            margin-bottom: 12px;
         }
 
         .highlight-title {
-            font-weight: bold;
-            margin-bottom: 10px;
+            font-weight: 700;
+            margin-bottom: 8px;
             color: var(--azul-marinho);
-            font-size: 18px;
+            font-size: 15px;
         }
 
         .highlight-text {
-            color: #666;
-            font-size: 14px;
+            color: #999;
+            font-size: 13px;
+            line-height: 1.5;
         }
 
-        /* CARRINHO MODAL */
+        /* CARRINHO */
         .cart-modal {
             display: none;
             position: fixed;
@@ -307,11 +320,11 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 31, 63, 0.8);
+            background: rgba(0, 31, 63, 0.7);
             z-index: 200;
             align-items: center;
             justify-content: center;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(3px);
         }
 
         .cart-modal.active {
@@ -320,33 +333,33 @@
 
         .cart-content {
             background: white;
-            padding: 40px;
-            border-radius: 15px;
-            max-width: 500px;
+            padding: 35px;
+            border-radius: 12px;
+            max-width: 480px;
             width: 90%;
             max-height: 85vh;
             overflow-y: auto;
-            box-shadow: 0 25px 60px rgba(0, 31, 63, 0.4);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
         }
 
         .cart-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
-            border-bottom: 2px solid var(--azul-claro);
-            padding-bottom: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 15px;
         }
 
         .cart-header h2 {
             color: var(--azul-marinho);
-            font-size: 24px;
+            font-size: 20px;
         }
 
         .cart-close {
             background: none;
             border: none;
-            font-size: 28px;
+            font-size: 24px;
             cursor: pointer;
             color: var(--azul-marinho);
         }
@@ -355,8 +368,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
-            border-bottom: 1px solid var(--azul-claro);
+            padding: 12px 0;
+            border-bottom: 1px solid #f5f5f3;
         }
 
         .cart-item-info {
@@ -364,47 +377,51 @@
         }
 
         .cart-item-name {
-            font-weight: bold;
-            margin-bottom: 5px;
+            font-weight: 600;
+            margin-bottom: 4px;
             color: var(--azul-marinho);
+            font-size: 14px;
         }
 
         .cart-item-price {
             color: var(--dourado);
-            font-weight: bold;
+            font-weight: 700;
+            font-size: 14px;
         }
 
         .cart-section {
             margin-top: 20px;
-            padding-top: 20px;
-            border-top: 2px solid var(--azul-claro);
+            padding-top: 15px;
+            border-top: 1px solid #f0f0f0;
         }
 
         .frete-section h3 {
             color: var(--azul-marinho);
-            margin-bottom: 15px;
-            font-size: 16px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            font-weight: 700;
         }
 
         .cep-input {
             width: 100%;
-            padding: 12px;
-            border: 2px solid var(--azul-claro);
-            border-radius: 8px;
-            font-size: 14px;
-            margin-bottom: 10px;
+            padding: 11px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 13px;
+            margin-bottom: 8px;
         }
 
         .cep-button {
             background: var(--azul-marinho);
             color: white;
-            padding: 10px 20px;
+            padding: 10px 16px;
             border: none;
-            border-radius: 8px;
+            border-radius: 6px;
             cursor: pointer;
             width: 100%;
-            font-weight: bold;
+            font-weight: 600;
             transition: all 0.3s ease;
+            font-size: 13px;
         }
 
         .cep-button:hover {
@@ -413,34 +430,35 @@
         }
 
         .frete-options {
-            margin-top: 15px;
+            margin-top: 12px;
         }
 
         .frete-option {
             padding: 10px;
-            margin: 8px 0;
-            border: 2px solid var(--azul-claro);
-            border-radius: 8px;
+            margin: 6px 0;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
             cursor: pointer;
             transition: all 0.2s ease;
+            font-size: 13px;
         }
 
         .frete-option:hover {
             border-color: var(--dourado);
-            background: rgba(218, 165, 32, 0.05);
+            background: #fafaf8;
         }
 
         .frete-option.selected {
             border-color: var(--dourado);
-            background: rgba(218, 165, 32, 0.1);
+            background: rgba(218, 165, 32, 0.08);
         }
 
         .cart-total {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 3px solid var(--azul-marinho);
-            font-size: 24px;
-            font-weight: bold;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid #f0f0f0;
+            font-size: 18px;
+            font-weight: 700;
             color: var(--azul-marinho);
             display: flex;
             justify-content: space-between;
@@ -449,32 +467,33 @@
         .checkout-button {
             background: var(--azul-marinho);
             color: white;
-            padding: 16px 30px;
+            padding: 14px 24px;
             border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: bold;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 700;
             cursor: pointer;
             width: 100%;
-            margin-top: 25px;
+            margin-top: 20px;
             transition: all 0.3s ease;
         }
 
         .checkout-button:hover {
             background: var(--dourado);
             color: var(--azul-marinho);
-            transform: scale(1.05);
+            transform: scale(1.02);
         }
 
         .remove-btn {
             background: #ff6b6b;
             color: white;
             border: none;
-            padding: 6px 12px;
-            border-radius: 5px;
+            padding: 5px 10px;
+            border-radius: 4px;
             cursor: pointer;
             transition: all 0.2s ease;
-            font-size: 12px;
+            font-size: 11px;
+            font-weight: 600;
         }
 
         .remove-btn:hover {
@@ -485,8 +504,8 @@
         footer {
             background: var(--azul-marinho);
             color: white;
-            padding: 60px 20px;
-            margin-top: 80px;
+            padding: 50px 20px;
+            margin-top: 70px;
         }
 
         .footer-content {
@@ -496,15 +515,15 @@
 
         .footer-content h3 {
             color: var(--dourado);
-            margin-bottom: 15px;
-            font-size: 22px;
+            margin-bottom: 12px;
+            font-size: 18px;
         }
 
         .footer-links {
-            margin: 25px 0;
+            margin: 20px 0;
             display: flex;
             justify-content: center;
-            gap: 40px;
+            gap: 35px;
             flex-wrap: wrap;
         }
 
@@ -513,40 +532,65 @@
             text-decoration: none;
             transition: color 0.3s ease;
             font-weight: 500;
-            font-size: 15px;
+            font-size: 14px;
         }
 
         .footer-links a:hover {
             color: var(--dourado);
         }
 
-        /* FINAL CTA */
-        .final-cta {
-            background: linear-gradient(135deg, var(--azul-marinho) 0%, var(--azul-serenity) 100%);
-            color: white;
-            padding: 80px 20px;
+        /* NEWSLETTER */
+        .newsletter {
+            background: white;
+            padding: 40px 20px;
+            margin: 50px 0;
+            border-radius: 12px;
+            border: 1px solid #f0f0f0;
             text-align: center;
-            margin-bottom: 50px;
-            border-radius: 15px;
         }
 
-        .final-cta h2 {
-            font-size: 40px;
-            margin-bottom: 20px;
+        .newsletter h2 {
+            color: var(--azul-marinho);
+            margin-bottom: 15px;
+            font-size: 22px;
+            font-weight: 700;
         }
 
-        .final-cta p {
-            font-size: 18px;
-            margin-bottom: 30px;
+        .newsletter-form {
+            display: flex;
+            gap: 8px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+
+        .newsletter-form button {
+            background: var(--azul-marinho);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 13px;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--dourado);
+            color: var(--azul-marinho);
         }
 
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 36px;
-            }
-
-            .hero-subtitle {
-                font-size: 18px;
+                font-size: 32px;
             }
 
             .menu-nav {
@@ -557,14 +601,8 @@
                 grid-template-columns: 1fr;
             }
 
-            .header-content {
+            .newsletter-form {
                 flex-direction: column;
-                gap: 15px;
-            }
-
-            .cart-content {
-                max-height: 90vh;
-                width: 95%;
             }
         }
 
@@ -591,9 +629,7 @@
     <!-- HEADER -->
     <header>
         <div class="header-content">
-            <div class="logo-header">
-                <span>Cria Paper</span>
-            </div>
+            <div class="logo-header">Cria Paper ✨</div>
             <div class="cart-icon" onclick="toggleCart()">
                 🛒
                 <div class="cart-count" id="cartCount">0</div>
@@ -601,20 +637,24 @@
         </div>
     </header>
 
-    <!-- HERO -->
+    <!-- HERO (Com Banner Integrado) -->
     <div class="hero">
-        <h1>A Criatividade Está em Suas Mãos</h1>
-        <p class="hero-subtitle">Canecas e Toper Personalizados Premium</p>
-        <button class="cta-button" onclick="document.querySelector('.menu-nav').scrollIntoView({behavior: 'smooth'})">
-            Explorar Produtos
-        </button>
+        <div class="hero-content">
+            <h1>"A Criatividade Está em Suas Mãos"</h1>
+            <p>Canecas, Topers e Produtos Personalizados Premium</p>
+            <button class="cta-button" onclick="document.querySelector('.menu-nav').scrollIntoView({behavior: 'smooth'})">
+                Explorar Produtos
+            </button>
+        </div>
     </div>
 
-    <!-- MENU NAVEGAÇÃO -->
+    <!-- MENU -->
     <div class="container">
         <div class="menu-nav">
-            <button class="menu-btn active" onclick="filterProducts('canecas')">☕ Canecas Personalizadas</button>
-            <button class="menu-btn" onclick="filterProducts('toper')">🎂 Toper de Bolo</button>
+            <button class="menu-btn active" onclick="filterProducts('canecas')">☕ Canecas</button>
+            <button class="menu-btn" onclick="filterProducts('toper')">🎂 Toper</button>
+            <button class="menu-btn" onclick="filterProducts('kit')">🎉 Kit Festa</button>
+            <button class="menu-btn" onclick="filterProducts('encadernacao')">📓 Encadernação</button>
         </div>
     </div>
 
@@ -626,58 +666,61 @@
     <!-- DESTAQUE -->
     <div class="container">
         <div class="highlights">
-            <h2>🏆 Por Que Escolher Cria Paper?</h2>
+            <h2>✨ Por Que Escolher Cria Paper?</h2>
             <div class="highlights-grid">
                 <div class="highlight-item">
-                    <div class="highlight-icon">✅</div>
+                    <div class="highlight-icon">💎</div>
                     <div class="highlight-title">Qualidade Premium</div>
                     <div class="highlight-text">Materiais de primeira linha e impressão perfeita</div>
                 </div>
                 <div class="highlight-item">
+                    <div class="highlight-icon">🎨</div>
+                    <div class="highlight-title">Totalmente Personalizado</div>
+                    <div class="highlight-text">Seu design, do seu jeito, perfeito</div>
+                </div>
+                <div class="highlight-item">
                     <div class="highlight-icon">🚚</div>
                     <div class="highlight-title">Frete Calculado</div>
-                    <div class="highlight-text">Correios com rastreamento automático</div>
+                    <div class="highlight-text">Correios com rastreamento</div>
                 </div>
                 <div class="highlight-item">
                     <div class="highlight-icon">💳</div>
                     <div class="highlight-title">Pagamento Seguro</div>
                     <div class="highlight-text">Mercado Pago - Pix, Cartão, Boleto</div>
                 </div>
-                <div class="highlight-item">
-                    <div class="highlight-icon">🎨</div>
-                    <div class="highlight-title">100% Personalizado</div>
-                    <div class="highlight-text">Seu design, do seu jeito, perfeito</div>
-                </div>
             </div>
         </div>
     </div>
 
-    <!-- FINAL CTA -->
+    <!-- NEWSLETTER -->
     <div class="container">
-        <div class="final-cta">
-            <h2>📦 Pronto Para Criar Algo Especial?</h2>
-            <p>Escolha seus produtos, calcule o frete e finalize a compra</p>
-            <button class="cta-button" onclick="scrollToProducts()">Ver Produtos Agora</button>
+        <div class="newsletter">
+            <h2>📧 Fique por Dentro das Novidades</h2>
+            <p style="color: #999; margin-bottom: 20px; font-size: 14px;">Receba nossas promoções e lançamentos exclusivos</p>
+            <div class="newsletter-form">
+                <input type="email" placeholder="Seu email..." id="newsletterEmail">
+                <button onclick="subscribeNewsletter()">Inscrever</button>
+            </div>
         </div>
     </div>
 
     <!-- FOOTER -->
     <footer>
         <div class="footer-content">
-            <h3>Cria Paper ✨</h3>
-            <p style="margin: 10px 0; font-size: 15px;">Canecas e Toper Personalizados com Qualidade Premium</p>
+            <h3>Cria Paper</h3>
+            <p style="margin: 8px 0; font-size: 14px;">Canecas, Topers e Produtos Personalizados com Qualidade Premium</p>
             <div class="footer-links">
                 <a href="https://wa.me/5515996590787" target="_blank">📞 WhatsApp</a>
                 <a href="mailto:contato@criapaper.com">📧 Email</a>
                 <a href="#instagram">📸 Instagram</a>
             </div>
-            <p style="margin-top: 30px; font-size: 13px; opacity: 0.8;">
+            <p style="margin-top: 25px; font-size: 12px; opacity: 0.8;">
                 © 2024 Cria Paper. Todos os direitos reservados.
             </p>
         </div>
     </footer>
 
-    <!-- CARRINHO MODAL -->
+    <!-- CARRINHO -->
     <div class="cart-modal" id="cartModal">
         <div class="cart-content">
             <div class="cart-header">
@@ -706,72 +749,31 @@
     </div>
 
     <script>
-        // Inicializar Mercado Pago
         const mp = new MercadoPago('APP_USR-7983178514878803-070521-272e2429c9976a024eb2f859c4814510-3319447987', {
             locale: 'pt-BR'
         });
 
-        // DADOS DOS PRODUTOS
         const products = {
             canecas: [
-                {
-                    id: 1,
-                    name: "Caneca Básica",
-                    description: "Caneca de porcelana com sua personalização perfeita",
-                    price: 39.00,
-                    category: "canecas",
-                    image: "☕"
-                },
-                {
-                    id: 2,
-                    name: "Caneca Chop Jateada",
-                    description: "Caneca tipo chop com acabamento jateado elegante",
-                    price: 69.00,
-                    category: "canecas",
-                    image: "🍺"
-                },
-                {
-                    id: 3,
-                    name: "Caneca Mágica",
-                    description: "Caneca mágica que muda com o calor - efeito incrível!",
-                    price: 59.00,
-                    category: "canecas",
-                    image: "✨"
-                },
-                {
-                    id: 4,
-                    name: "Caneca Imperial",
-                    description: "Caneca premium imperial com design exclusivo",
-                    price: 79.00,
-                    category: "canecas",
-                    image: "👑"
-                }
+                { id: 1, name: "Caneca Básica", description: "Porcelana com sua personalização perfeita", price: 39.00, image: "☕" },
+                { id: 2, name: "Caneca Chop Jateada", description: "Chop com acabamento elegante", price: 69.00, image: "🍺" },
+                { id: 3, name: "Caneca Mágica", description: "Muda com o calor - efeito incrível!", price: 59.00, image: "✨" },
+                { id: 4, name: "Caneca Imperial", description: "Premium imperial design exclusivo", price: 79.00, image: "👑" }
             ],
             toper: [
-                {
-                    id: 5,
-                    name: "Toper Básico",
-                    description: "Toper redondo acrílico cristal - simples e elegante",
-                    price: 25.00,
-                    category: "toper",
-                    image: "🎂"
-                },
-                {
-                    id: 6,
-                    name: "Toper Intermediário",
-                    description: "Toper com detalhes em espelho - mais sofisticado",
-                    price: 35.00,
-                    category: "toper",
-                    image: "✨"
-                },
-                {
-                    id: 7,
-                    name: "Toper Luxo",
-                    description: "Toper premium com acabamento espelhado dourado",
-                    price: 40.00,
-                    category: "toper",
-                    image: "👑"
-                }
+                { id: 5, name: "Toper Básico", description: "Acrílico cristal simples e elegante", price: 25.00, image: "🎂" },
+                { id: 6, name: "Toper Intermediário", description: "Com detalhes em espelho sofisticado", price: 35.00, image: "✨" },
+                { id: 7, name: "Toper Luxo", description: "Acabamento espelhado dourado premium", price: 40.00, image: "👑" }
+            ],
+            kit: [
+                { id: 8, name: "Kit Festa Básico", description: "Decoração e personalização para festa", price: 99.00, image: "🎉" },
+                { id: 9, name: "Kit Festa Intermediário", description: "Kit completo para celebração perfeita", price: 159.90, image: "🎊" },
+                { id: 10, name: "Kit Festa Premium", description: "Kit luxuoso para evento inesquecível", price: 259.00, image: "✨" }
+            ],
+            encadernacao: [
+                { id: 11, name: "Caderneta de Saúde", description: "Personalizada com seus dados", price: 69.90, image: "📔" },
+                { id: 12, name: "Livro de Mensagens 15 Anos", description: "Para celebrar essa data especial", price: 79.90, image: "📖" },
+                { id: 13, name: "Livro de Mensagens Casamento", description: "Guarde as melhores mensagens", price: 79.90, image: "💕" }
             ]
         };
 
@@ -779,12 +781,10 @@
         let freteData = null;
         let selectedFrete = null;
 
-        // Renderizar produtos
         function renderProducts(filter) {
             const grid = document.getElementById('productsGrid');
             grid.innerHTML = '';
-            
-            const productsToShow = filter ? products[filter] : [...products.canecas, ...products.toper];
+            const productsToShow = filter ? products[filter] : [...products.canecas, ...products.toper, ...products.kit, ...products.encadernacao];
             
             productsToShow.forEach(product => {
                 const card = document.createElement('div');
@@ -804,41 +804,36 @@
             });
         }
 
-        // Filtrar produtos
         function filterProducts(category) {
             document.querySelectorAll('.menu-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
             renderProducts(category);
         }
 
-        // Adicionar ao carrinho
         function addToCart(id, name, price) {
             cart.push({ id, name, price });
             updateCartCount();
             event.target.textContent = '✅ Adicionado!';
             setTimeout(() => {
                 event.target.textContent = 'Adicionar ao Carrinho';
-            }, 2000);
+            }, 1500);
         }
 
-        // Atualizar contagem
         function updateCartCount() {
             document.getElementById('cartCount').textContent = cart.length;
         }
 
-        // Toggle carrinho
         function toggleCart() {
             document.getElementById('cartModal').classList.toggle('active');
             renderCart();
         }
 
-        // Renderizar carrinho
         function renderCart() {
             const cartItemsDiv = document.getElementById('cartItems');
             cartItemsDiv.innerHTML = '';
             
             if (cart.length === 0) {
-                cartItemsDiv.innerHTML = '<p style="text-align: center; padding: 20px; color: #666;">Seu carrinho está vazio</p>';
+                cartItemsDiv.innerHTML = '<p style="text-align: center; padding: 20px; color: #999;">Seu carrinho está vazio</p>';
                 document.getElementById('cartTotal').textContent = '0.00';
                 return;
             }
@@ -859,14 +854,12 @@
             updateTotal();
         }
 
-        // Remover do carrinho
         function removeFromCart(index) {
             cart.splice(index, 1);
             updateCartCount();
             renderCart();
         }
 
-        // Calcular frete via API Correios
         async function calcularFrete() {
             const cep = document.getElementById('cepInput').value.replace('-', '');
             const loading = document.getElementById('freteLoading');
@@ -883,7 +876,6 @@
             options.innerHTML = '';
 
             try {
-                // Usar API pública dos Correios
                 const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
                 const data = await response.json();
 
@@ -893,7 +885,6 @@
                     return;
                 }
 
-                // Simular frete baseado em distância (em produção, usar API real dos Correios)
                 freteData = {
                     cep: cep,
                     cidade: data.localidade,
@@ -910,9 +901,7 @@
                 freteData.opcoes.forEach((opcao, index) => {
                     const div = document.createElement('div');
                     div.className = 'frete-option';
-                    div.innerHTML = `
-                        <strong>${opcao.nome}</strong> - R$ ${opcao.preco.toFixed(2)}
-                    `;
+                    div.innerHTML = `<strong>${opcao.nome}</strong> - R$ ${opcao.preco.toFixed(2)}`;
                     div.onclick = () => selecionarFrete(index, opcao.preco);
                     options.appendChild(div);
                 });
@@ -924,7 +913,6 @@
             }
         }
 
-        // Selecionar frete
         function selecionarFrete(index, preco) {
             document.querySelectorAll('.frete-option').forEach(el => el.classList.remove('selected'));
             document.querySelectorAll('.frete-option')[index].classList.add('selected');
@@ -933,7 +921,6 @@
             document.getElementById('freteSelected').textContent = `✅ Frete selecionado: R$ ${preco.toFixed(2)}`;
         }
 
-        // Atualizar total
         function updateTotal() {
             const subtotal = cart.reduce((sum, item) => sum + item.price, 0);
             const frete = selectedFrete || 0;
@@ -941,7 +928,6 @@
             document.getElementById('cartTotal').textContent = total.toFixed(2);
         }
 
-        // Checkout
         async function checkout() {
             if (cart.length === 0) {
                 alert('❌ Adicione produtos ao carrinho primeiro!');
@@ -952,7 +938,6 @@
             const frete = selectedFrete || 0;
             const total = subtotal + frete;
 
-            // Criar preferência Mercado Pago
             const preference = {
                 items: cart.map(item => ({
                     title: item.name,
@@ -960,9 +945,7 @@
                     currency_id: 'BRL',
                     unit_price: item.price
                 })),
-                payer: {
-                    email: 'cliente@criapaper.com'
-                },
+                payer: { email: 'cliente@criapaper.com' },
                 back_urls: {
                     success: window.location.href,
                     pending: window.location.href,
@@ -972,9 +955,7 @@
             };
 
             if (frete > 0) {
-                preference.shipments = {
-                    cost: frete
-                };
+                preference.shipments = { cost: frete };
             }
 
             try {
@@ -988,7 +969,6 @@
                 });
 
                 const data = await response.json();
-                
                 if (data.init_point) {
                     window.location.href = data.init_point;
                 } else {
@@ -1000,12 +980,14 @@
             }
         }
 
-        // Scroll para produtos
-        function scrollToProducts() {
-            document.getElementById('productsGrid').scrollIntoView({behavior: 'smooth'});
+        function subscribeNewsletter() {
+            const email = document.getElementById('newsletterEmail').value;
+            if (email) {
+                alert('✅ Email cadastrado com sucesso! Você receberá nossas novidades.');
+                document.getElementById('newsletterEmail').value = '';
+            }
         }
 
-        // Inicializar
         renderProducts('canecas');
     </script>
 </body>
